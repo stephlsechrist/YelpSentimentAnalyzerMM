@@ -1,6 +1,8 @@
 
 from TextParser import TextParser
+from StopList import StopList
 
+s1 = StopList()
 t1 = TextParser("Hello, this is my test_data  99 data9 data Hello Data")
 t2 = TextParser("After a few weeks into the  shelter in place I have been waiting for Rusty's brunch items.. I had to "
                 "start the first day of Rusty's roll up brunch hard.. I have been craving Rusty's chicken and "
@@ -9,6 +11,8 @@ t2 = TextParser("After a few weeks into the  shelter in place I have been waitin
                 "with a 6 pack of miller some ciders and pilsners to go.. and it was hot ready and juicy in less than "
                 "20 minutes. Thanks Rusty and Cody and Rusty's team for all that you do for the neighborhood and "
                 "community.. keep the chicken rolling and piping hot... Can't wait till your next brunch..")
+
+print(len(s1.list))
 
 for text in t2.sortByTotal():
     print(text)

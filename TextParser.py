@@ -1,10 +1,12 @@
 import re
 from operator import itemgetter
+from StopList import StopList
 
 class TextParser:
 
     def __init__(self, text):
         self.text = text
+        self.stopList = StopList()
 
     def formatText(self):
         listText = []
@@ -14,8 +16,12 @@ class TextParser:
             fText = re.sub(r'[\W_]+', '', newText)
             newEntry = [fText.lower(), 1]
 
+            for stopText in self.stopList.list:
+                if newEntry[0] == stopText and flag == False:
+                    flag = True
+
             for testText in listText:
-                if newEntry[0] == testText[0]:
+                if newEntry[0] == testText[0] and flag == False:
                     listText[count][1] = listText[count][1] + 1
                     flag = True
 
