@@ -4,15 +4,7 @@ from operator import itemgetter
 class TextParser:
 
     def __init__(self, text):
-        """
-            name: Name of the fruit shop
-
-            fruitPrices: Dictionary with keys as fruit
-            strings and prices for values e.g.
-            {'apples':2.00, 'oranges': 1.50, 'pears': 1.75}
-        """
         self.text = text
-#        print('Welcome to %s fruit shop' % (name))
 
     def formatText(self):
         listText = []
@@ -31,11 +23,15 @@ class TextParser:
             if flag == False:
                 listText.append(newEntry)
 
-        return sorted(listText, key = itemgetter(0))
+        return listText
 
     def sortByTotal(self):
-        return sorted(listGiven, key = itemgetter(1))
+        listText = self.formatText()
+        return sorted(listText, key = itemgetter(1), reverse = True)
 
+    def sortByAlpha(self):
+        listText = self.formatText()
+        return sorted(listText, key = itemgetter(0))
 
     def getText(self):
         return self.text

@@ -10,9 +10,8 @@ t2 = TextParser("After a few weeks into the  shelter in place I have been waitin
                 "20 minutes. Thanks Rusty and Cody and Rusty's team for all that you do for the neighborhood and "
                 "community.. keep the chicken rolling and piping hot... Can't wait till your next brunch..")
 
-listText1 = t2.formatText()
-listText2 = t2.formatText()
-for text in listText2.
-for text in listText1:
+for text in t2.sortByTotal():
     print(text)
-# t2.formatText()
+
+# for text in t2.sortByAlpha():
+#     print(text)
