@@ -14,8 +14,8 @@ t2 = TextParser("After a few weeks into the  shelter in place I have been waitin
 
 print(len(s1.list))
 
-for text in t2.sortByTotal():
-    print(text)
-
-# for text in t2.sortByAlpha():
+# for text in t2.sortByTotal():
 #     print(text)
+
+for text in t2.sortByAlpha():
+    print(text)
