@@ -1,4 +1,5 @@
 import re
+import Stem
 from operator import itemgetter
 from StopList import StopList
 
@@ -10,7 +11,9 @@ class TextParser:
 
     def formatText(self):
         listText = []
-        for newText in self.text.split():
+        stemmedList = Stem.stem(self.text.split())
+
+        for newText in stemmedList:
             flag = False
             count = 0
             fText = re.sub(r'[\W_]+', '', newText)

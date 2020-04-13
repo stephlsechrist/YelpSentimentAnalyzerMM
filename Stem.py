@@ -1,6 +1,6 @@
 # import these modules
 from nltk.stem import PorterStemmer
-from nltk.tokenize import word_tokenize
+# from nltk.tokenize import word_tokenize
 
 # class Stem:
 #     def __init__(self, text):
