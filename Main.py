@@ -1,8 +1,7 @@
 
 from TextParser import TextParser
-from StopList import StopList
+from TermFrequencyTable import TermFrequencyTable
 
-s1 = StopList()
 t1 = TextParser("Hello, this is my test_data  99 data9 data Hello Data")
 # 5 star reviews
 t2 = TextParser("After a few weeks into the  shelter in place I have been waiting for Rusty's brunch items.. I had to "
@@ -51,32 +50,44 @@ t7 = TextParser("Thank you to all the staff that bravely go to work everyday (am
 #                 "on your face through all the chaos and dealing with so many civilians and and and...just thank you :') Hope you all realize how much I "
 #                 "appreciate you guys!! I've been shopping at this location since I was a freshie in college... woofff. Decade plus?? thanks again !")
 
-print(len(s1.list))
+# print(len(s1.list))
+#
 
 # for text in t2.sortByTotal():
 #     print(text)
 
-for text in t2.sortByAlpha():
-    print(text)
+# for text in t2.sortByAlpha():
+#     print(text)
+#
+# print()
+#
+# for text in t3.sortByAlpha():
+#     print(text)
+# print()
+#
+# for text in t4.sortByAlpha():
+#     print(text)
+# print()
+#
+# for text in t5.sortByAlpha():
+#     print(text)
+# print()
+#
+# for text in t6.sortByAlpha():
+#     print(text)
+# print()
+#
+# for text in t7.sortByAlpha():
+#     print(text)
+# print()
 
-print()
+tft = TermFrequencyTable()
+tft.addList(t1.sortByAlpha())
+tft.addList(t2.sortByAlpha())
+tft.addList(t3.sortByAlpha())
+tft.addList(t4.sortByAlpha())
+tft.addList(t5.sortByAlpha())
+tft.addList(t6.sortByAlpha())
+tft.addList(t7.sortByAlpha())
 
-for text in t3.sortByAlpha():
-    print(text)
-print()
-
-for text in t4.sortByAlpha():
-    print(text)
-print()
-
-for text in t5.sortByAlpha():
-    print(text)
-print()
-
-for text in t6.sortByAlpha():
-    print(text)
-print()
-
-for text in t7.sortByAlpha():
-    print(text)
-print()
+print(tft.display())
