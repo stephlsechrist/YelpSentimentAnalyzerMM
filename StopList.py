@@ -2,7 +2,7 @@ import Stem
 
 class StopList:
     def __init__(self):
-        self.list = Stem.stem(['a', 'after', 'all', 'and', 'been', 'biscuits', 'but',
+        self.list = Stem.stem(['a', 'after', 'all', 'and', 'at', 'be', 'been', 'biscuits', 'but',
                      'cant', 'cheese', 'chicken', 'day', 'decided', 'do',
                      'door', 'egg', 'few', 'first', 'for', 'from', 'go',
                      'gravy', 'had', 'have', 'he', 'i', 'if', 'in', 'into',
@@ -11,3 +11,6 @@ class StopList:
                      'roll', 'she', 'some', 'spot', 'start', 'than', 'that', 'the',
                      'this', 'til', 'till', 'treats', 'to', 'to', 'today', 'up', 'wait', 'was',
                      'weeks', 'when', 'where', 'with', 'you', 'your'])
+
+        #maybe add:
+        # 'menu', 'is', ive', 'san', 'francisco', 'city'
