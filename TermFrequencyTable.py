@@ -10,7 +10,6 @@ class TermFrequencyTable:
         self.termFreqTable = []
 
     def addList(self, newList):
-        # self.termFreqTable.append(self.count)
         self.termFreqTable.append(newList)
         self.count += 1
 
@@ -20,6 +19,8 @@ class TermFrequencyTable:
             for currItem in currList:
                 if currItem[0] not in termList:
                     termList.append(currItem[0])
+
+        termList.sort()
 
         for term in termList:
             print(term + " ", end='')
@@ -41,15 +42,6 @@ class TermFrequencyTable:
                 print(num, end='')
                 print(" ", end='')
             print()
-
-        # for currList in self.termFreqTable:
-        #     for currItem in currList:
-        #         if currItem[0] in termList:
-        #             print(currItem[1], end='')
-        #             print(" ", end='')
-        #         else:
-        #             print("0 ", end='')
-        #     print()
 
     def sortByTotal(self):
         listText = self.formatText()
