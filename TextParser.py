@@ -48,7 +48,7 @@ class TextParser:
 
 
                 for stopText in self.stopList.list:
-                    if newEntry[0] == stopText and flag == False:
+                    if newEntry[0][0] == stopText and flag == False or newEntry[0][1] == stopText and flag == False:
                         flag = True
 
                 for testText in listText:
