@@ -34,6 +34,34 @@ class TextParser:
 
         return listText
 
+    def formatTextNGram(self, num):
+        listText = []
+        stemmedList = Stem.stem(self.text.split())
+
+        for i, newText in enumerate(stemmedList):
+
+            if i < len(stemmedList) - 1:
+                flag = False
+                count = 0
+                fText = [re.sub(r'[\W_]+', '', newText.lower()), re.sub(r'[\W_]+', '', stemmedList[i + 1]).lower()]
+                newEntry = [fText, 1]
+
+
+                for stopText in self.stopList.list:
+                    if newEntry[0] == stopText and flag == False:
+                        flag = True
+
+                for testText in listText:
+                    if newEntry[0] == testText[0] and flag == False:
+                        listText[count][1] = listText[count][1] + 1
+                        flag = True
+
+                    count = count + 1
+                if flag == False:
+                    listText.append(newEntry)
+
+        return listText
+
     def sortByTotal(self):
         listText = self.formatText()
         return sorted(listText, key = itemgetter(1), reverse = True)
@@ -41,6 +69,10 @@ class TextParser:
     def sortByAlpha(self):
         listText = self.formatText()
         return sorted(listText, key = itemgetter(0))
+
+    def sortByAlphaNGram(self, num):
+        listText = self.formatTextNGram(num)
+        return sorted(listText, key=itemgetter(0))
 
     def getText(self):
         return self.text

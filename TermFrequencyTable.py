@@ -71,6 +71,9 @@ class TermFrequencyTable:
                 tempList.append(listNum[count])
                 total += int(listNum[count])
             count += 1
+
+            # if total > 1:
+
             for num in tempList:
                 print(num, end='')
                 print(" ", end='')
