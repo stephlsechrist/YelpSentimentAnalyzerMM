@@ -10,4 +10,5 @@ for review in sample.listOfReviews:
     parsedReview = TextParser(review)
     tft.addList(parsedReview.sortByAlpha())
 
-print(tft.display())
+tft.formatTable()
+tft.displayVert()

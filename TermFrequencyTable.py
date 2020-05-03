@@ -6,30 +6,27 @@ from StopList import StopList
 class TermFrequencyTable:
 
     def __init__(self):
-        self.count = 1
         self.termFreqTable = []
+        self.listOfReviews = []
+        self.termList = []
 
     def addList(self, newList):
-        self.termFreqTable.append(newList)
-        self.count += 1
+        self.listOfReviews.append(newList)
 
-    def display(self):
-        termList = []
-        for currList in self.termFreqTable:
+    def formatTable(self):
+
+        self.termList = []
+        for currList in self.listOfReviews:
             for currItem in currList:
-                if currItem[0] not in termList:
-                    termList.append(currItem[0])
+                if currItem[0] not in self.termList:
+                    self.termList.append(currItem[0])
 
-        termList.sort()
+        self.termList.sort()
 
-        for term in termList:
-            print(term + " ", end='')
-        print()
-
-        for currList in self.termFreqTable:
+        for currList in self.listOfReviews:
             tempList = []
             flag = False
-            for term in termList:
+            for term in self.termList:
                 for currItem in currList:
                     if term == currItem[0]:
                         tempList.append(currItem[1])
@@ -38,21 +35,45 @@ class TermFrequencyTable:
                     tempList.append("0")
                 flag = False
 
+            self.termFreqTable.append(tempList)
+
+    def display(self):
+
+        for term in self.termList:
+            print(term + " ", end='')
+        print()
+
+        for tempList in self.termFreqTable:
             for num in tempList:
                 print(num, end='')
                 print(" ", end='')
             print()
 
-    def sortByTotal(self):
-        listText = self.formatText()
-        return sorted(listText, key = itemgetter(1), reverse = True)
+    def displayVert(self):
 
-    def sortByAlpha(self):
-        listText = self.formatText()
-        return sorted(listText, key = itemgetter(0))
+        count = 0
+        for term in self.termList:
+            tempList = []
+            tempList.append(term)
+            if len(term) <= 2:
+                tempList.append("\t\t\t\t\t")
+            elif len(term) <= 6 and len(term) >= 3:
+                tempList.append("\t\t\t\t")
+            elif len(term) >= 7 and len(term) <= 10:
+                tempList.append("\t\t\t")
+            elif len(term) >= 11 and len(term) <= 14:
+                tempList.append("\t\t")
+            else:
+                tempList.append("\t")
 
-    def getText(self):
-        return self.text
+            for listNum in self.termFreqTable:
+                tempList.append(listNum[count])
+            count += 1
+            for num in tempList:
+                print(num, end='')
+                print(" ", end='')
+            print()
+
 
     # def __str__(self):
     #     return "<Text: %s>" % self.getText()
