@@ -53,6 +53,7 @@ class TermFrequencyTable:
 
         count = 0
         for term in self.termList:
+            total = 0
             tempList = []
             tempList.append(term)
             if len(term) <= 2:
@@ -68,11 +69,12 @@ class TermFrequencyTable:
 
             for listNum in self.termFreqTable:
                 tempList.append(listNum[count])
+                total += int(listNum[count])
             count += 1
             for num in tempList:
                 print(num, end='')
                 print(" ", end='')
-            print()
+            print("\t\ttotal: " + str(total))
 
 
     # def __str__(self):
