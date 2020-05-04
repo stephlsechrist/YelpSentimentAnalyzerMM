@@ -13,6 +13,9 @@ class TermFrequencyTable:
     def addList(self, newList):
         self.listOfReviews.append(newList)
 
+    def displayList(self):
+        print(self.listOfReviews)
+
     def formatTable(self):
 
         self.termList = []
@@ -57,12 +60,18 @@ class TermFrequencyTable:
             tempList = []
             tempList.append(term)
             if len(term) <= 2:
-                tempList.append("\t\t\t\t\t")
+                tempList.append("\t\t\t\t\t\t\t\t")
             elif len(term) <= 6 and len(term) >= 3:
-                tempList.append("\t\t\t\t")
+                tempList.append("\t\t\t\t\t\t\t")
             elif len(term) >= 7 and len(term) <= 10:
-                tempList.append("\t\t\t")
+                tempList.append("\t\t\t\t\t\t")
             elif len(term) >= 11 and len(term) <= 14:
+                tempList.append("\t\t\t\t\t")
+            elif len(term) >= 15 and len(term) <= 18:
+                tempList.append("\t\t\t\t")
+            elif len(term) >= 19 and len(term) <= 22:
+                tempList.append("\t\t\t")
+            elif len(term) >= 23 and len(term) <= 26:
                 tempList.append("\t\t")
             else:
                 tempList.append("\t")
@@ -72,12 +81,12 @@ class TermFrequencyTable:
                 total += int(listNum[count])
             count += 1
 
-            # if total > 1:
-
-            for num in tempList:
-                print(num, end='')
-                print(" ", end='')
-            print("\t\ttotal: " + str(total))
+            if total > 1:
+                print(tempList[0], end='')
+                # for num in tempList:
+                #     print(num, end='')
+                #     print(" ", end='')
+                print("\t\ttotal: " + str(total))
 
 
     # def __str__(self):

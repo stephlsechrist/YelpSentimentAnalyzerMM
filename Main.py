@@ -20,4 +20,5 @@ for review in SampleReviews().listOfReviews:
     tft.addList(TextParser(review).sortByAlphaNGram(2))
 
 tft.formatTable()
+# tft.displayList()
 tft.displayVert()
