@@ -16,6 +16,9 @@ class TermFrequencyTable:
     def displayList(self):
         print(self.listOfReviews)
 
+    def displayTermList(self):
+        print(self.termList)
+
     def formatTable(self):
 
         self.termList = []
