@@ -62,38 +62,32 @@ class TermFrequencyTable:
             total = 0
             tempList = []
             tempList.append(term)
-            if len(term) <= 2:
-                tempList.append("\t\t\t\t\t\t\t\t")
-            elif len(term) <= 6 and len(term) >= 3:
-                tempList.append("\t\t\t\t\t\t\t")
-            elif len(term) >= 7 and len(term) <= 10:
-                tempList.append("\t\t\t\t\t\t")
-            elif len(term) >= 11 and len(term) <= 14:
-                tempList.append("\t\t\t\t\t")
-            elif len(term) >= 15 and len(term) <= 18:
-                tempList.append("\t\t\t\t")
-            elif len(term) >= 19 and len(term) <= 22:
-                tempList.append("\t\t\t")
-            elif len(term) >= 23 and len(term) <= 26:
-                tempList.append("\t\t")
-            else:
-                tempList.append("\t")
+            # if len(term) <= 2:
+            #     tempList.append("\t\t\t\t\t\t\t\t")
+            # elif len(term) <= 6 and len(term) >= 3:
+            #     tempList.append("\t\t\t\t\t\t\t")
+            # elif len(term) >= 7 and len(term) <= 10:
+            #     tempList.append("\t\t\t\t\t\t")
+            # elif len(term) >= 11 and len(term) <= 14:
+            #     tempList.append("\t\t\t\t\t")
+            # elif len(term) >= 15 and len(term) <= 18:
+            #     tempList.append("\t\t\t\t")
+            # elif len(term) >= 19 and len(term) <= 22:
+            #     tempList.append("\t\t\t")
+            # elif len(term) >= 23 and len(term) <= 26:
+            #     tempList.append("\t\t")
+            # else:
+            #     tempList.append("\t")
 
             for listNum in self.termFreqTable:
                 tempList.append(listNum[count])
                 total += int(listNum[count])
             count += 1
 
-            if total > 1:
+            if total > 2:
                 print(tempList[0], end='')
                 # for num in tempList:
                 #     print(num, end='')
                 #     print(" ", end='')
                 print("\t\ttotal: " + str(total))
 
-
-    # def __str__(self):
-    #     return "<Text: %s>" % self.getText()
-
-    # def __repr__(self):
-    #     return str(self)

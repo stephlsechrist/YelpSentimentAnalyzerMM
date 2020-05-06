@@ -107,3 +107,8 @@ dist
 # TernJS port file
 .tern-port
 Project2/package-lock.json
+
+# Yelp data
+yelp_academic_dataset_review.json
+yelp_academic_dataset_business.json
+sample_business.json
