@@ -1,16 +1,15 @@
 
+from WeightedVector import WeightedVector
 from TextParser import TextParser
 from TermFrequencyTable import TermFrequencyTable
 import json
 import gui
 import tkinter as tk
 
-# data = [json.loads(line) for line in open('yelp_academic_dataset_review.json', 'r', encoding="utf8")]
+# ***********************************************
+# Unused code but saving for future
 
-tft = TermFrequencyTable()
-
-review_list = []
-
+<<<<<<< HEAD
 with open('sample_reviews_500.json', 'r', encoding="utf8") as f:
     data = json.load(f)
 
@@ -18,13 +17,19 @@ for i in range(len(data)):
     review_list.append(data[i])
 
 print(len(review_list))
+=======
+# data = [json.loads(line) for line in open('yelp_academic_dataset_review.json', 'r', encoding="utf8")]
+>>>>>>> d016c4bdbdd78556ae40cf3017f6b75689bdf0fd
 
 # with open('sample_reviews_1000.json', 'w') as json_file:
 #     json.dump(review_list, json_file)
 
-# for i in range(len(data)):
-#     if data[i]['stars'] > 3:
-#         review_list.append(data[i]['text'])
+# for key in tft1.getTable():
+#     if tft1.termFreqTable[key] > 5:
+#         print(key, end='')
+#         print(" : " + str(tft1.termFreqTable[key]))
+
+# w.displayVector()
 
 # for review in review_list:
 #     tft.addList(TextParser(review).sortByAlphaNGram(2))
@@ -34,8 +39,64 @@ print(len(review_list))
 # # tft.displayList()
 # tft.displayVert()
 
+<<<<<<< HEAD
 window = tk.Tk()
 window.title("Yelp Sentiment Analyzer")
 gui = gui.MainApplication(window)
 gui.grid(row=0, column=0)
 tk.mainloop()
+=======
+# ***********************************************
+
+
+tft1 = TermFrequencyTable()
+tft2 = TermFrequencyTable()
+tft3 = TermFrequencyTable()
+tft4 = TermFrequencyTable()
+tft5 = TermFrequencyTable()
+
+w = WeightedVector()
+review_list = []
+
+with open('sample_reviews_500.json', 'r', encoding="utf8") as f:
+    data = json.load(f)
+#
+# for i in range(len(data)):
+#     if data[i]['stars'] == 1:
+#         tft1.addList(TextParser(data[i]['text']).sortByAlphaNGram(2))
+#         # review_list.append(data[i]['text'])
+#     elif data[i]['stars'] == 2:
+#         tft2.addList(TextParser(data[i]['text']).sortByAlphaNGram(2))
+#
+#     elif data[i]['stars'] == 3:
+#         tft3.addList(TextParser(data[i]['text']).sortByAlphaNGram(2))
+#
+#     elif data[i]['stars'] == 4:
+#         tft4.addList(TextParser(data[i]['text']).sortByAlphaNGram(2))
+#
+#     elif data[i]['stars'] == 5:
+#         tft5.addList(TextParser(data[i]['text']).sortByAlphaNGram(2))
+#
+# tft1.formatTable()
+# tft2.formatTable()
+# tft4.formatTable()
+# tft5.formatTable()
+#
+# w.updateVector(tft1.getTable(), -2)
+# w.updateVector(tft2.getTable(), -1)
+# w.updateVector(tft4.getTable(), 1)
+# w.updateVector(tft5.getTable(), 2)
+
+w.loadVector()
+
+testNum = 10
+
+print(data[testNum]['text'])
+print(data[testNum]['stars'])
+print(w.eval(data[testNum]['text']))
+
+# for key in sorted(w.compareVector):
+#     if abs(w.compareVector[key]) > 4:
+#         print(key, w.compareVector[key])
+
+>>>>>>> d016c4bdbdd78556ae40cf3017f6b75689bdf0fd
