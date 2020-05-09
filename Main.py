@@ -2,6 +2,8 @@
 from TextParser import TextParser
 from TermFrequencyTable import TermFrequencyTable
 import json
+import gui
+import tkinter as tk
 
 # data = [json.loads(line) for line in open('yelp_academic_dataset_review.json', 'r', encoding="utf8")]
 
@@ -9,7 +11,7 @@ tft = TermFrequencyTable()
 
 review_list = []
 
-with open('sample_reviews_1000.json', 'r', encoding="utf8") as f:
+with open('sample_reviews_500.json', 'r', encoding="utf8") as f:
     data = json.load(f)
 
 for i in range(len(data)):
@@ -31,3 +33,9 @@ print(len(review_list))
 # # tft.displayTermList()
 # # tft.displayList()
 # tft.displayVert()
+
+window = tk.Tk()
+window.title("Yelp Sentiment Analyzer")
+gui = gui.MainApplication(window)
+gui.grid(row=0, column=0)
+tk.mainloop()
