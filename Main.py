@@ -10,6 +10,7 @@ import tkinter as tk
 # Unused code but saving for future
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 with open('sample_reviews_500.json', 'r', encoding="utf8") as f:
     data = json.load(f)
 
@@ -20,6 +21,9 @@ print(len(review_list))
 =======
 # data = [json.loads(line) for line in open('yelp_academic_dataset_review.json', 'r', encoding="utf8")]
 >>>>>>> d016c4bdbdd78556ae40cf3017f6b75689bdf0fd
+=======
+# data = [json.loads(line) for line in open('yelp_academic_dataset_review.json', 'r', encoding="utf8")]
+>>>>>>> 2ad7c8e93bc3563323222944c2bde1cf034fa577
 
 # with open('sample_reviews_1000.json', 'w') as json_file:
 #     json.dump(review_list, json_file)
@@ -38,6 +42,7 @@ print(len(review_list))
 # # tft.displayTermList()
 # # tft.displayList()
 # tft.displayVert()
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 window = tk.Tk()
@@ -46,8 +51,9 @@ gui = gui.MainApplication(window)
 gui.grid(row=0, column=0)
 tk.mainloop()
 =======
+=======
+>>>>>>> 2ad7c8e93bc3563323222944c2bde1cf034fa577
 # ***********************************************
-
 
 tft1 = TermFrequencyTable()
 tft2 = TermFrequencyTable()
@@ -99,4 +105,12 @@ print(w.eval(data[testNum]['text']))
 #     if abs(w.compareVector[key]) > 4:
 #         print(key, w.compareVector[key])
 
+<<<<<<< HEAD
 >>>>>>> d016c4bdbdd78556ae40cf3017f6b75689bdf0fd
+=======
+window = tk.Tk()
+window.title("Yelp Sentiment Analyzer")
+gui = gui.MainApplication(window)
+gui.grid(row=0, column=0)
+tk.mainloop()
+>>>>>>> 2ad7c8e93bc3563323222944c2bde1cf034fa577
