@@ -36,7 +36,7 @@ tft3 = TermFrequencyTable()
 tft4 = TermFrequencyTable()
 tft5 = TermFrequencyTable()
 
-w = WeightedVector()
+# w = WeightedVector()
 review_list = []
 
 with open('sample_reviews_500.json', 'r', encoding="utf8") as f:
@@ -68,13 +68,13 @@ with open('sample_reviews_500.json', 'r', encoding="utf8") as f:
 # w.updateVector(tft4.getTable(), 1)
 # w.updateVector(tft5.getTable(), 2)
 
-w.loadVector()
+# w.loadVector()
 
-testNum = 10
-
-print(data[testNum]['text'])
-print(data[testNum]['stars'])
-print(w.eval(data[testNum]['text']))
+# testNum = 10
+#
+# print(data[testNum]['text'])
+# print(data[testNum]['stars'])
+# print(w.eval(data[testNum]['text']))
 
 # for key in sorted(w.compareVector):
 #     if abs(w.compareVector[key]) > 4:
