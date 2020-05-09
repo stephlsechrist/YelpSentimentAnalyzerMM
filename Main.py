@@ -3,6 +3,8 @@ from WeightedVector import WeightedVector
 from TextParser import TextParser
 from TermFrequencyTable import TermFrequencyTable
 import json
+import gui
+import tkinter as tk
 
 # ***********************************************
 # Unused code but saving for future
@@ -26,9 +28,7 @@ import json
 # # tft.displayTermList()
 # # tft.displayList()
 # tft.displayVert()
-
 # ***********************************************
-
 
 tft1 = TermFrequencyTable()
 tft2 = TermFrequencyTable()
@@ -80,3 +80,8 @@ print(w.eval(data[testNum]['text']))
 #     if abs(w.compareVector[key]) > 4:
 #         print(key, w.compareVector[key])
 
+window = tk.Tk()
+window.title("Yelp Sentiment Analyzer")
+gui = gui.MainApplication(window)
+gui.grid(row=0, column=0)
+tk.mainloop()
