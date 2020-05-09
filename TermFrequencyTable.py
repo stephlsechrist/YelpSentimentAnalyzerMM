@@ -6,12 +6,19 @@ from StopList import StopList
 class TermFrequencyTable:
 
     def __init__(self):
-        self.termFreqTable = []
+        self.termFreqTable = dict()
         self.listOfReviews = []
         self.termList = []
 
+
     def addList(self, newList):
         self.listOfReviews.append(newList)
+
+    def getTable(self):
+        return self.termFreqTable
+
+    def getTermList(self):
+        return self.termList
 
     def displayList(self):
         print(self.listOfReviews)
@@ -26,22 +33,30 @@ class TermFrequencyTable:
             for currItem in currList:
                 if currItem[0] not in self.termList:
                     self.termList.append(currItem[0])
+                    self.termFreqTable[currItem[0][0] + " " + currItem[0][1]] = 0
 
         self.termList.sort()
 
         for currList in self.listOfReviews:
-            tempList = []
-            flag = False
-            for term in self.termList:
-                for currItem in currList:
-                    if term == currItem[0]:
-                        tempList.append(currItem[1])
-                        flag = True
-                if flag == False:
-                    tempList.append("0")
-                flag = False
+            for term in currList:
+                if (term[0][0] + " " + term[0][1]) in self.termFreqTable:
+                    self.termFreqTable[term[0][0] + " " + term[0][1]] += term[1]
 
-            self.termFreqTable.append(tempList)
+        # print(self.termFreqTable)
+
+
+        # for currList in self.listOfReviews:
+        #     print(currList)
+        #     total = 0
+        #     tempList = []
+        #     for term in self.termList:
+        #         for currItem in currList:
+        #             # print(currItem)
+        #             if term == currItem[0]:
+        #                 total += currItem[1]
+        #         tempList.append(term)
+        #         tempList.append(total)
+        #         # print(tempList)
 
     def display(self):
 
