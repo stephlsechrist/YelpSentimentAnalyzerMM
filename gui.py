@@ -1,4 +1,5 @@
 import tkinter as tk
+from WeightedVector import WeightedVector
 
 class MainApplication(tk.Frame):
     def __init__(self, window):
@@ -6,6 +7,8 @@ class MainApplication(tk.Frame):
 
         # window = tk.Tk()
         # window.title("Yelp Sentiment Analyzer")
+        w = WeightedVector()
+        w.loadVector()
 
         frame_greeting = tk.Frame(master=window)
         frame_text = tk.Frame(master=window)
@@ -47,8 +50,8 @@ class MainApplication(tk.Frame):
         def handle_click(event):
             review = text_box.get(1.0, tk.END)
             # call eval here and store result to prediction
-            prediction = 100
-            label_result["text"] = f"Predicted rating is {prediction} stars"
+            prediction = w.eval(review)
+            label_result["text"] = f"Predicted rating is {prediction}"
             print(review)
 
         def handle_click_restart(event):
