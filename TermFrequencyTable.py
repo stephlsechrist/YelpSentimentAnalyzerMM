@@ -6,7 +6,7 @@ from StopList import StopList
 class TermFrequencyTable:
 
     def __init__(self):
-        self.termFreqTable = dict()
+        self.termFreqTable = {}
         self.listOfReviews = []
         self.termList = []
 

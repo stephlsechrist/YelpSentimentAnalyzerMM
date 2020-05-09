@@ -19,7 +19,6 @@ import tkinter as tk
 #         print(key, end='')
 #         print(" : " + str(tft1.termFreqTable[key]))
 
-# w.displayVector()
 
 # for review in review_list:
 #     tft.addList(TextParser(review).sortByAlphaNGram(2))
@@ -30,20 +29,56 @@ import tkinter as tk
 # tft.displayVert()
 # ***********************************************
 
-tft1 = TermFrequencyTable()
-tft2 = TermFrequencyTable()
-tft3 = TermFrequencyTable()
-tft4 = TermFrequencyTable()
-tft5 = TermFrequencyTable()
+# tft1 = TermFrequencyTable()
+# tft2 = TermFrequencyTable()
+# tft3 = TermFrequencyTable()
+# tft4 = TermFrequencyTable()
+# tft5 = TermFrequencyTable()
+#
 
 # w = WeightedVector()
-review_list = []
-
-with open('sample_reviews_500.json', 'r', encoding="utf8") as f:
-    data = json.load(f)
+# w.loadVector()
+# w.displayVector()
+# review_list = []
 #
-# for i in range(len(data)):
-#     if data[i]['stars'] == 1:
+# with open('sample_reviews_10000_1.json', 'r', encoding="utf8") as f1:
+#     data = json.load(f1)
+#
+# for i in range(5000):
+#     tft1.addList(TextParser(data[i]['text']).sortByAlphaNGram(2))
+#
+# with open('sample_reviews_10000_2.json', 'r', encoding="utf8") as f2:
+#     data = json.load(f2)
+#
+# for i in range(5000):
+#     tft2.addList(TextParser(data[i]['text']).sortByAlphaNGram(2))
+# #
+# with open('sample_reviews_10000_4.json', 'r', encoding="utf8") as f4:
+#     data = json.load(f4)
+#
+# for i in range(5000):
+#     tft4.addList(TextParser(data[i]['text']).sortByAlphaNGram(2))
+#
+# with open('sample_reviews_10000_5.json', 'r', encoding="utf8") as f5:
+#     data = json.load(f5)
+#
+# for i in range(5000):
+#     tft5.addList(TextParser(data[i]['text']).sortByAlphaNGram(2))
+#
+#
+# tft1.formatTable()
+# tft2.formatTable()
+# tft4.formatTable()
+# tft5.formatTable()
+#
+# w.updateVector(tft1.getTable(), -2)
+# w.updateVector(tft2.getTable(), -1)
+# w.updateVector(tft4.getTable(), 1)
+# w.updateVector(tft5.getTable(), 2)
+#
+# w.saveVector()
+
+#    if data[i]['stars'] == 1:
 #         tft1.addList(TextParser(data[i]['text']).sortByAlphaNGram(2))
 #         # review_list.append(data[i]['text'])
 #     elif data[i]['stars'] == 2:
@@ -58,15 +93,6 @@ with open('sample_reviews_500.json', 'r', encoding="utf8") as f:
 #     elif data[i]['stars'] == 5:
 #         tft5.addList(TextParser(data[i]['text']).sortByAlphaNGram(2))
 #
-# tft1.formatTable()
-# tft2.formatTable()
-# tft4.formatTable()
-# tft5.formatTable()
-#
-# w.updateVector(tft1.getTable(), -2)
-# w.updateVector(tft2.getTable(), -1)
-# w.updateVector(tft4.getTable(), 1)
-# w.updateVector(tft5.getTable(), 2)
 
 # w.loadVector()
 
@@ -79,6 +105,8 @@ with open('sample_reviews_500.json', 'r', encoding="utf8") as f:
 # for key in sorted(w.compareVector):
 #     if abs(w.compareVector[key]) > 4:
 #         print(key, w.compareVector[key])
+
+
 
 window = tk.Tk()
 window.title("Yelp Sentiment Analyzer")
