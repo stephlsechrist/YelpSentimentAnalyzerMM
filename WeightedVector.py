@@ -1,5 +1,6 @@
 import json
 from TextParser import TextParser
+import math
 
 class WeightedVector:
 
@@ -11,9 +12,15 @@ class WeightedVector:
         total = 0
         for terms in pReview:
             if (terms[0][0] + " " + terms[0][1]) in self.compareVector:
-                total += (self.compareVector[(terms[0][0] + " " + terms[0][1])] * terms[1])
+                temp = 0
+                if (self.compareVector[(terms[0][0] + " " + terms[0][1])]) < 0:
+                    temp = (self.compareVector[(terms[0][0] + " " + terms[0][1])] * -1) ** (1. / 3)
+                    temp = temp * -1
+                else:
+                    temp = (self.compareVector[(terms[0][0] + " " + terms[0][1])]) ** (1. / 3)
+                total += (temp * terms[1])
 
-        return total
+        return (len(pReview) / total)
 
     def displayTable(self, table, stars):
         for key in table:
@@ -21,24 +28,24 @@ class WeightedVector:
             print(" : " + str(table[key]))
 
     def displayVector(self):
-        for key in self.compareVector:
-            if abs(self.compareVector[key]) > 5:
+        for key in sorted(self.compareVector):
+            if abs(self.compareVector[key]) > 50:
                 print(key, end='')
                 print(" : " + str(self.compareVector[key]))
 
-    def updateVector(self, table, stars):
+    def updateVector(self, table, mod):
 
-        for key in table:
-            if stars > 0:
-                if table[key] not in self.compareVector:
-                    self.compareVector[key] = (table[key] * stars)
-                elif table[key] in self.compareVector:
-                    self.compareVector[key] += (table[key] * stars)
+        for key in sorted(table):
+            if mod < 0:
+                if key not in self.compareVector:
+                    self.compareVector[key] = (table[key] * mod)
+                else:
+                    self.compareVector[key] += (table[key] * mod)
             else:
-                if table[key] not in self.compareVector:
-                    self.compareVector[key] = (table[key] * stars)
-                elif table[key] in self.compareVector:
-                    self.compareVector[key] += (table[key] * stars)
+                if key not in self.compareVector:
+                    self.compareVector[key] = (table[key] * mod)
+                else:
+                    self.compareVector[key] += (table[key] * mod)
 
     def loadVector(self):
         with open('weighted_vector.json') as json_file:
