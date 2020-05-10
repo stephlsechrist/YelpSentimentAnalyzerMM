@@ -20,7 +20,7 @@ class WeightedVector:
                     temp = (self.compareVector[(terms[0][0] + " " + terms[0][1])]) ** (1. / 3)
                 total += (temp * terms[1])
 
-        return (len(pReview) / total)
+        return (total / len(pReview) ** (1. / 3))
 
     def displayTable(self, table, stars):
         for key in table:

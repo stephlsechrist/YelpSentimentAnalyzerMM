@@ -47,7 +47,7 @@ class TextParser:
                 newEntry = [fText, 1]
 
 
-                for stopText in self.stopList.list:
+                for stopText in self.stopList.list2:
                     if newEntry[0][0] == stopText and flag == False or newEntry[0][1] == stopText and flag == False:
                         flag = True
 
