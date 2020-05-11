@@ -13,7 +13,7 @@ class StopList:
                                'what', 'when', 'where',
                                'who', 'with', 'write', 'you', 'your'])
 
-        self.list2 = Stem.stem(['i', 'me', 'mine', 'he', 'she', 'it', 'a', 'an', 'the',
+        self.list2 = Stem.stem(['', ' ', 'i', 'me', 'mine', 'he', 'she', 'it', 'a', 'an', 'the',
                                 'above', 'below', 'while', 'as', 'until', 'of', 'at',
                                 'down', 'if', 'to', 'or', 'was', 'were', 'itself', 'for',
                                 'other', 'both', 'any', 'all', 'between', 'do', 'does',

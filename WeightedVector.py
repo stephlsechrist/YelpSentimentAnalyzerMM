@@ -14,13 +14,13 @@ class WeightedVector:
             if (terms[0][0] + " " + terms[0][1]) in self.compareVector:
                 temp = 0
                 if (self.compareVector[(terms[0][0] + " " + terms[0][1])]) < 0:
-                    temp = (self.compareVector[(terms[0][0] + " " + terms[0][1])] * -1) ** (1. / 3)
+                    temp = (self.compareVector[(terms[0][0] + " " + terms[0][1])] * -1) ** (1. / 5)
                     temp = temp * -1
                 else:
-                    temp = (self.compareVector[(terms[0][0] + " " + terms[0][1])]) ** (1. / 3)
+                    temp = (self.compareVector[(terms[0][0] + " " + terms[0][1])]) ** (1. / 5)
                 total += (temp * terms[1])
 
-        return (total / len(pReview) ** (1. / 3))
+        return (total / len(pReview) ** (1. / 2))
 
     def displayTable(self, table, stars):
         for key in table:
