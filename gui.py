@@ -50,8 +50,8 @@ class MainApplication(tk.Frame):
         def handle_click(event):
             review = text_box.get(1.0, tk.END)
             # call eval here and store result to prediction
-            prediction = w.eval(review)
-            label_result["text"] = f"Predicted rating is {prediction}"
+            prediction = w.predict(review)
+            label_result["text"] = f"Predicted rating is {prediction} stars."
             print(review)
 
         def handle_click_restart(event):

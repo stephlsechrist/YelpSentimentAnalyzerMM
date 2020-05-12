@@ -2,6 +2,12 @@ import json
 from TextParser import TextParser
 import math
 
+#                           average                   min                       max
+# 5star -        7.9     3.204176265824693      -13.028643924917958        16.88578222214421
+# 4star -        6.6     1.986488533999484      -17.01176984015702         14.129129977512243
+# 2star -       -4.5    -9.19865360868044       -34.297560069624424        3.1208862013592356
+# 1star -       -7.9    -12.6266329264273       -46.05009804491635         0.9829178989403702
+
 class WeightedVector:
 
     def __init__(self):
@@ -20,7 +26,22 @@ class WeightedVector:
                     temp = (self.compareVector[(terms[0][0] + " " + terms[0][1])]) ** (1. / 5)
                 total += (temp * terms[1])
 
-        return (total / len(pReview) ** (1. / 2))
+        return (total / len(pReview) ** (1. / 2)) + 4.7
+
+    def predict(self, review):
+        num = self.eval(review)
+        if num >= 7.25:
+            return 5
+        elif 7.25 > num >= 3.6:
+            return 4
+        elif 3.6 > num >= -2.25:
+            return 3
+        elif -2.25 > num >= -6.2:
+            return 2
+        else:
+            return 1
+
+
 
     def displayTable(self, table, stars):
         for key in table:

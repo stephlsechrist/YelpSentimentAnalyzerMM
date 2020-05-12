@@ -12,75 +12,90 @@ import tkinter as tk
 # tft4 = TermFrequencyTable()
 # tft5 = TermFrequencyTable()
 
-w = WeightedVector()
-w.loadVector()
 
-# print(len(w.compareVector))
 
-# review_list1 = []
-# review_list2 = []
-# review_list4 = []
-# review_list5 = []
-# count1 = 0
-# count2 = 0
-# count4 = 0
-# count5 = 0
+# ***********************
+# This will tell you the range of the tests
+# ***********************
+#
+# w = WeightedVector()
+# w.loadVector()
+# star = 5
+#
+# with open(f"sample_reviews_100_{star}.json", 'r', encoding="utf8") as f:
+#     data = json.load(f)
+#
+# total = 0
+# difference = 0
+#
+# for i in range(100):
+#     score = w.predict(data[i]['text'])
+#     print(score, end='')
+#     print(" " + str(w.eval((data[i]['text']))))
+#     total += score
+#     difference += abs(score - star)
+#
+# print(total / 100)
+# print(difference / 100)
 
-# print(len(w.compareVector))
 
-# 670275
-# 695434
-# 742724
-# 790096
-# 836070
-# 881863
-# 926446
-# 969821
-# 1010581
-# 1052111
-# 1092878
-# 1153710
-# 1230720
-# 1308077
+
+# 1308077 terms in the weighted vector
 
 # ***********************
 # this is for cutting the massive reviewfile
 # ***********************
 
+# review_list1 = []
+# review_list2 = []
+# review_list3 = []
+# review_list4 = []
+# review_list5 = []
+# count1 = 0
+# count2 = 0
+# count3 = 0
+# count4 = 0
+# count5 = 0
+
 # data = [json.loads(line) for line in open('yelp_academic_dataset_review.json', 'r', encoding="utf8")]
 #
-# for i in range(len(data)):
+# for i in range(1000000, 1010000):
 #     if data[i]['stars'] == 1:
 #         count1 += 1
-#         if 25000 > count1 >= 10000:
+#         if count1 <= 100:
 #             review_list1.append(data[i])
 #     elif data[i]['stars'] == 2:
 #         count2 += 1
-#         if 25000 > count2 >= 10000:
+#         if count2 <= 100:
 #             review_list2.append(data[i])
+#     elif data[i]['stars'] == 3:
+#         count3 += 1
+#         if count3 <= 100:
+#             review_list3.append(data[i])
 #     elif data[i]['stars'] == 4:
 #         count4 += 1
-#         if 25000 > count4 >= 10000:
+#         if count4 <= 100:
 #             review_list4.append(data[i])
 #     elif data[i]['stars'] == 5:
 #         count5 += 1
-#         if 25000 > count5 >= 10000:
+#         if count5 <= 100:
 #             review_list5.append(data[i])
-
-
-# with open('sample_reviews_10000_25000_1.json', 'w') as json_file:
+#
+#
+# with open('sample_reviews_100_1.json', 'w') as json_file:
 #     json.dump(review_list1, json_file)
 #
-# with open('sample_reviews_10000_25000_2.json', 'w') as json_file:
+# with open('sample_reviews_100_2.json', 'w') as json_file:
 #     json.dump(review_list2, json_file)
 #
-# with open('sample_reviews_10000_25000_4.json', 'w') as json_file:
+# with open('sample_reviews_100_3.json', 'w') as json_file:
+#     json.dump(review_list3, json_file)
+#
+# with open('sample_reviews_100_4.json', 'w') as json_file:
 #     json.dump(review_list4, json_file)
 #
-# with open('sample_reviews_10000_25000_5.json', 'w') as json_file:
+# with open('sample_reviews_100_5.json', 'w') as json_file:
 #     json.dump(review_list5, json_file)
-
-
 
 
 # *************************************
@@ -92,8 +107,9 @@ w.loadVector()
 #
 # average = 0
 # count = 2000
-# high = -10000
-# low = 10000
+# high = w.eval(data[0]['text'])
+# low = w.eval(data[0]['text'])
+
 # for i in range(count):
 #     average += w.eval(data[i]['text'])
 #     if w.eval(data[i]['text']) > high:
@@ -106,10 +122,10 @@ w.loadVector()
 # print(high)
 
 #                           average                   min                       max
-# 5star -             3.204176265824693      -13.028643924917958        16.88578222214421
-# 4star -             1.986488533999484      -17.01176984015702         14.129129977512243
-# 2star -            -9.19865360868044       -34.297560069624424        3.1208862013592356
-# 1star -            -12.6266329264273       -46.05009804491635         0.9829178989403702
+# 5star -            3.204176265824693      -13.028643924917958        16.88578222214421
+# 4star -            1.986488533999484      -17.01176984015702         14.129129977512243
+# 2star -           -9.19865360868044       -34.297560069624424        3.1208862013592356
+# 1star -           -12.6266329264273       -46.05009804491635         0.9829178989403702
 
 
 
