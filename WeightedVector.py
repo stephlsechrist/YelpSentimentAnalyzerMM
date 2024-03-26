@@ -24,12 +24,19 @@ class WeightedVector:
                     temp = temp * -1
                 else:
                     temp = (self.compareVector[(terms[0][0] + " " + terms[0][1])]) ** (1. / 5)
+                print(str(temp) + " : " + terms[0][0] + " " + terms[0][1])
                 total += (temp * terms[1])
-
+        print("Total score before normalizing: " + str(total))
         return (total / len(pReview) ** (1. / 2)) + 4.7
 
-    def predict(self, review):
+    def predict_dec(self, review):
         num = self.eval(review)
+        print("5 star: score >= 7.25")
+        print("4 star: 7.25 > score >= 3.6")
+        print("3 star: 3.6 > score >= -2.25")
+        print("2 star: -2.25 > score >= -6.2")
+        print("1 star: -6.2 > score")
+        print("Score: " + str(num))
         if num >= 7.25:
             return 5
         elif 7.25 > num >= 3.6:
@@ -41,6 +48,27 @@ class WeightedVector:
         else:
             return 1
 
+    def predict(self, review):
+        num = self.eval(review)
+        if num >= 7.25:
+            prediction = 5
+        elif 7.25 > num >= 3.6:
+            prediction = 4
+        elif 3.6 > num >= -2.25:
+            prediction = 3
+        elif -2.25 > num >= -6.2:
+            prediction = 2
+        else:
+            prediction = 1
+        print("5 star: score >= 7.25")
+        print("4 star: 7.25 > score >= 3.6")
+        print("3 star: 3.6 > score >= -2.25")
+        print("2 star: -2.25 > score >= -6.2")
+        print("1 star: -6.2 > score")
+        print("Score: " + str(num))
+        print("Predicted star: ",  prediction)
+        
+        return prediction
 
 
     def displayTable(self, table, stars):
@@ -50,7 +78,7 @@ class WeightedVector:
 
     def displayVector(self):
         for key in sorted(self.compareVector):
-            if abs(self.compareVector[key]) > 50:
+            if abs(self.compareVector[key]) > 2000:
                 print(key, end='')
                 print(" : " + str(self.compareVector[key]))
 

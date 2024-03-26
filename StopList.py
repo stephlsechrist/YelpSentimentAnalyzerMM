@@ -20,5 +20,3 @@ class StopList:
                                 'did', 'on', 'own', 'who', 'whom', 'this', 'that', 'has',
                                 'have', 'here', 'some', 'why', 'same',
                                 'so', 'is', 'be'])
-
-        # maybe add:

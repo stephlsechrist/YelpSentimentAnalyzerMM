@@ -15,7 +15,7 @@ import tkinter as tk
 
 
 # ***********************
-# This will tell you the range of the tests
+# The range of the tests
 # ***********************
 #
 # w = WeightedVector()
@@ -43,7 +43,7 @@ import tkinter as tk
 # 1308077 terms in the weighted vector
 
 # ***********************
-# this is for cutting the massive reviewfile
+# Cutting the massive reviewfile
 # ***********************
 
 # review_list1 = []
@@ -99,7 +99,7 @@ import tkinter as tk
 
 
 # *************************************
-# This is to text averages
+# Text averages
 # *************************************
 
 # with open('sample_reviews_10000_25000_1.json', 'r', encoding="utf8") as f:
@@ -130,7 +130,7 @@ import tkinter as tk
 
 
 # *************************************
-# This is to add terms to the weighted vector
+# Add terms to the weighted vector
 # *************************************
 
 # for i in range(13000, 15000):
@@ -171,11 +171,11 @@ import tkinter as tk
 
 
 # *************************************
-# This is the gui component
+# GUI component
 # *************************************
 
-# window = tk.Tk()
-# window.title("Yelp Sentiment Analyzer")
-# gui = gui.MainApplication(window)
-# gui.grid(row=0, column=0)
-# tk.mainloop()
+window = tk.Tk()
+window.title("Yelp Sentiment Analyzer")
+gui = gui.MainApplication(window)
+gui.grid(row=0, column=0)
+tk.mainloop()
